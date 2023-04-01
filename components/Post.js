@@ -25,13 +25,13 @@ const Post = ({
     userName,
     avatar,
     text,
-    isProfileImageNFT,
+    isProfileImageNft,
     timeStamp,
 }) => {
   return (
     <div className={style.wrapper}>
         <div>
-            <img src={avatar} alt={userName} className={isProfileImageNFT?`${style.profileImage} smallHex`:style.profileImage} />
+            <img src={avatar} alt={userName} className={isProfileImageNft?`${style.profileImage} smallHex`:style.profileImage} />
         </div>
 
         <div className={style.postMain}>
@@ -39,7 +39,7 @@ const Post = ({
                 <span className={style.headerDetails}>
                     <span className={style.name}>{displayName}</span>
 
-                    {isProfileImageNFT && (
+                    {isProfileImageNft && (
                         <span className={style.verified}>
                             <BsFillPatchCheckFill/>
                         </span>

@@ -1,14 +1,9 @@
-import { BsStars } from 'react-icons/bs'
-import TweetBox from './TweetBox'
+import React from 'react'
+// import { useEffect, useContext, useState } from 'react'
+// import { TwitterContext } from '../../context/TwitterContext'
 import Post from '../Post'
 
-const style = {
-    wrapper: `flex-[2] border-r border-l border-[#38444d] `,
-    header: `sticky top-0 bg-[#15202b] z-10 p-4 flex justify-between items-center`,
-    headerTitle: `text-xl font-bold`,
-  }
-
-  const tweets=[
+const tweets=[
     {
         displayName: 'Naman',
         userName:'1234',
@@ -50,38 +45,35 @@ const style = {
 
     }
   ]
-  
 
+const style = {
+  wrapper: `no-scrollbar`,
+  header: `sticky top-0 bg-[#15202b] z-10 p-4 flex justify-between items-center`,
+  headerTitle: `text-xl font-bold`,
+}
 
-function Feed() {
-    return(
-
-        <div className={style.wrapper}>
-            <div className={style.header}>
-                <div className={style.headerTitle}>
-                    Home
-                </div>
-                <BsStars/>
-            </div>
-            <TweetBox/>
-            {
-                tweets.map((tweet,index)=>(
-                    <Post
-                        key={index}
-                        displayName={tweet.displayName}
+const ProfileTweets = () => {
+  return (
+    <div className={style.wrapper}>
+        {
+            tweets?.map((tweet,index)=>(
+                <Post
+                    key={index}
+                    displayName={tweet.displayName}
                         ////slice
-                        userName={tweet.userName}
+                        userName={"naman "}
                         avatar={tweet.avatar}
                         text={tweet.text}
                         isProfileImageNFT={tweet.isProfileImageNFT}
                         timeStamp={tweet.timeStamp}
 
-                    />
-                ))
-            }
-        </div>
 
-    )
+                />
+
+            ))
+        }
+    </div>
+  )
 }
 
-export default Feed
+export default ProfileTweets

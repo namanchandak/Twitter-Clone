@@ -11,6 +11,7 @@ import { HiOutlineMail , HiMail } from 'react-icons/hi'
 import { VscTwitter } from 'react-icons/vsc'
 import { FaRagListAlt , FaHashtag, FaBell } from 'react-icons/fa'
 import { CgMoreO } from 'react-icons/cg'
+import Link from 'next/link';
 import {  BsBookmark,
     BsBookmarkFill,
     BsPerson,
@@ -101,7 +102,7 @@ function Sidebar (initialSelectedIcon='Home') {
                 text='Profile'
                 isActive={Boolean(selected==='Profile')}
                 setSelected={setSelected}
-                redirect={'/profile'}
+                redirect={'/Profile'}
             
             />
             <SidebarOption 
@@ -115,6 +116,8 @@ function Sidebar (initialSelectedIcon='Home') {
     
 
             <div className={style.tweetButton}>Mint </div>
+            <div className={style.wrapper}></div>
+            <div className={style.wrapper}></div>
             <div className={style.profileButton}>
 
                 <div className={style.profileLeft}></div>

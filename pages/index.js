@@ -16,7 +16,6 @@ export default function Home () {
       <div className={style.content}>
 
       
-      {/* <Sidebar/> */}
       <Sidebar/>
       <Feed/>
       <Widgets/>
