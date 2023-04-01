@@ -1,7 +1,21 @@
 
 // import { FiMoreHorizontal } from "react-icons/fi";
-import { FaTwitter } from 'react-icons/fa';
- 
+import { useState } from 'react';
+import { FaRegListAlt, FaTwitter } from 'react-icons/fa';
+import SidebarOption from './SidebarOption';
+//  import {useState} from 'react'
+import { RiHome7Line, RiHome7Fill, RiFileList2Fill } from 'react-icons/ri'
+import { BiHash } from 'react-icons/bi'
+import { FiBell, FiMoreHorizontal } from 'react-icons/fi'
+import { HiOutlineMail , HiMail } from 'react-icons/hi'
+import { VscTwitter } from 'react-icons/vsc'
+import { FaRagListAlt , FaHashtag, FaBell } from 'react-icons/fa'
+import { CgMoreO } from 'react-icons/cg'
+import {  BsBookmark,
+    BsBookmarkFill,
+    BsPerson,
+    BsPersonFill, } from 'react-icons/bs'
+
 
 const style = {
   wrapper: `flex-[0.7] px-8 flex flex-col`,
@@ -19,32 +33,103 @@ const style = {
 }
 
 
-function Sidebar () {
+function Sidebar (initialSelectedIcon='Home') {
+    const [selected,setSelected]=useState(initialSelectedIcon)
     return(
         <div className={style.wrapper}>
             <div >
-                <FaTwitter />
+            <VscTwitter />
             </div>
-            <div>Home</div>
-            <div>Explore</div>
-            <div>Notification</div>
-            <div>Message</div>
-            <div>Bookmarks</div>
-            <div>Lists</div>
-            <div>Profile</div>
-            <div>More</div>
+            <SidebarOption
+                Icon={selected==='Home'?RiHome7Fill:RiHome7Line}
+                text='Home'
+                isActive={Boolean(selected==='Home')}
+                setSelected={setSelected}
+                redirect={'/'}
+
+                 
+            />
+
+            <SidebarOption 
+
+                Icon={selected==='Explore'?FaHashtag:BiHash}
+                text='Explore'
+                isActive={Boolean(selected==='Explore')}
+                setSelected={setSelected}
+                redirect={'/'}
+            
+            />
+            <SidebarOption 
+
+                Icon={selected==='Notification'?FaBell : FiBell}
+                text='Notification'
+                isActive={Boolean(selected==='Notification')}
+                setSelected={setSelected}
+                redirect={'/'}
+            
+            />
+            <SidebarOption 
+
+                Icon={selected==='Message'?HiMail : HiOutlineMail}
+                text='Message'
+                isActive={Boolean(selected==='Message')}
+                setSelected={setSelected}
+                redirect={'/'}
+            
+            />
+            <SidebarOption 
+
+                Icon={selected==='Bookmarks'? BsBookmarkFill : BsBookmark}
+                text='Bookmarks'
+                isActive={Boolean(selected==='Bookmarks')}
+                setSelected={setSelected}
+                redirect={'/'}
+            
+            />
+            <SidebarOption 
+
+                Icon={selected==='Lists'?RiFileList2Fill:FaRegListAlt}
+                text='Lists'
+                isActive={Boolean(selected==='Lists')}
+                setSelected={setSelected}
+                redirect={'/'}
+            
+            />
+            <SidebarOption 
+
+                Icon={selected==='Profile'? BsPersonFill : BsPerson}
+                text='Profile'
+                isActive={Boolean(selected==='Profile')}
+                setSelected={setSelected}
+                redirect={'/profile'}
+            
+            />
+            <SidebarOption 
+
+                Icon={CgMoreO}
+                text='More'
+                
+            />
+            
+
+    
 
             <div className={style.tweetButton}>Mint </div>
             <div className={style.profileButton}>
 
-                <div className={style.profileLeft}>
+                <div className={style.profileLeft}></div>
                     <div className={style.details}></div>
-                </div>
+                
 
                 <div className={style.profileRight}>
                     <div className={style.details}>
                         <div className={style.name}>Naman</div>
+                        <div className={style.handle}>@3232</div>
                     </div>
+                    <div className={style.moreContainer}>
+                            <FiMoreHorizontal/>
+                          </div>
+
                 </div>
             </div>
             
